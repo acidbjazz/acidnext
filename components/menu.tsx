@@ -7,6 +7,8 @@ export default function Menu() {
       <Link href="./about">About</Link>
       <Link href="./blog">Blog</Link>
       <Link href="./blog/first-article">Blog - First Article</Link>
+      <Link href="./contact">Contact(404)</Link>
+      <Link href="./blog/no-article">Blog - No Article(404)</Link>
     </nav>
   );
 }
