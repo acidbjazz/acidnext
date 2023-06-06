@@ -1,5 +1,7 @@
 import "@/styles/normalize.css";
 import styles from "@/styles/rootLayout.module.sass";
+import Header from "@/components/header";
+import Footer from "@/components/footer";
 
 interface RootLayout {
   children: React.ReactNode;
@@ -9,9 +11,9 @@ export default function RootLayout({ children }: RootLayout) {
     <html lang="en">
       <body>
         <div className={styles.layout}>
-          <header>logo|menu</header>
+          <Header />
           <main>{children}</main>
-          <footer>©2023</footer>
+          <Footer />
         </div>
       </body>
     </html>
