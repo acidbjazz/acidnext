@@ -1,13 +1,20 @@
-import { getArticles } from "@/lib/cms";
+import ReactMarkdown from "react-markdown";
+import { getArticle, getArticles } from "@/lib/cms";
 
 interface ArticlePage {
   params: {
     slug: string;
   };
 }
-export default function ArticlePage({ params }: ArticlePage) {
+export default async function ArticlePage({ params }: ArticlePage) {
   const { slug } = params;
-  return <>Article Page: {slug}</>;
+  const article = await getArticle(slug);
+  return (
+    <>
+      <h1>{article.title}</h1>
+      <ReactMarkdown>{article.body}</ReactMarkdown>
+    </>
+  );
 }
 
 export async function generateStaticParams() {

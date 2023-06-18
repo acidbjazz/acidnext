@@ -30,3 +30,17 @@ export async function getArticles(): Promise<Article[]> {
   const { data } = await graphqlClient(query);
   return data.articleCollection.items;
 }
+
+export async function getArticle(slug: string): Promise<Article> {
+  const query = `{
+    articleCollection(where: {slug: "${slug}"}) {
+      items {
+        title
+        cover { url }
+        body
+      }
+    }
+  }`;
+  const { data } = await graphqlClient(query);
+  return data.articleCollection.items[0];
+}
