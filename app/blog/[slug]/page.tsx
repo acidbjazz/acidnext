@@ -1,3 +1,5 @@
+import { getArticles } from "@/lib/cms";
+
 interface ArticlePage {
   params: {
     slug: string;
@@ -9,7 +11,8 @@ export default function ArticlePage({ params }: ArticlePage) {
 }
 
 export async function generateStaticParams() {
-  return [{ slug: "first-article" }, { slug: "last-article" }];
+  const articles = await getArticles();
+  return articles.map((article) => ({ slug: article.slug }));
 }
 
 export const dynamicParams = false;
