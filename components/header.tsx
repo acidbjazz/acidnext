@@ -1,9 +1,15 @@
 import styles from "@/styles/header.module.sass";
+
+import Link from "next/link";
 import Menu from "@/components/menu";
+import SVG from "@/components/svg";
+
 export default function Header() {
   return (
     <header className={styles.header}>
-      <div>Logo</div>
+      <Link href="/">
+        <SVG name="logo" width={40} />
+      </Link>
       <Menu />
     </header>
   );
