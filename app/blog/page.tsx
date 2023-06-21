@@ -1,3 +1,4 @@
+import { Metadata } from "next";
 import Link from "next/link";
 import Image from "next/image";
 import { getArticles } from "@/lib/cms";
@@ -18,3 +19,7 @@ export default async function BlogPage() {
     </>
   );
 }
+
+export const metadata: Metadata = {
+  title: "Blog",
+};

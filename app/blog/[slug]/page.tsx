@@ -1,3 +1,4 @@
+import { Metadata } from "next";
 import Image from "next/image";
 import ReactMarkdown from "react-markdown";
 import { getArticle, getArticles } from "@/lib/cms";
@@ -25,3 +26,14 @@ export async function generateStaticParams() {
 }
 
 export const dynamicParams = false;
+
+export async function generateMetadata({ params }: ArticlePage): Promise<Metadata> {
+  const { slug } = params;
+  const article = await getArticle(slug);
+  return {
+    title: article.title,
+    openGraph: {
+      images: article.cover.url,
+    },
+  };
+}
