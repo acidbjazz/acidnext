@@ -1,3 +1,4 @@
+import Image from "next/image";
 import ReactMarkdown from "react-markdown";
 import { getArticle, getArticles } from "@/lib/cms";
 
@@ -12,6 +13,7 @@ export default async function ArticlePage({ params }: ArticlePage) {
   return (
     <>
       <h1>{article.title}</h1>
+      <Image src={article.cover.url} width={800} height={600} alt={article.title} />
       <ReactMarkdown>{article.body}</ReactMarkdown>
     </>
   );

@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 import { getArticles } from "@/lib/cms";
 
 export default async function BlogPage() {
@@ -9,6 +10,7 @@ export default async function BlogPage() {
       {articles.map((article) => {
         return (
           <Link href={`/blog/${article.slug}`} key={article.sys.id}>
+            <Image src={article.cover.url} width={300} height={200} alt={article.title} />
             <h2>{article.title}</h2>
           </Link>
         );
